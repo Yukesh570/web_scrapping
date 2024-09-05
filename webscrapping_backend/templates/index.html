@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>City Name Display</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 50px;
+        }
+        .container {
+            max-width: 400px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        input {
+            padding: 10px;
+            width: 80%;
+            margin-bottom: 20px;
+        }
+        button {
+            padding: 10px 20px;
+            cursor: pointer;
+        }
+        .result {
+            margin-top: 20px;
+            font-size: 18px;
+            color: blue;
+        }
+        .weather-image {
+            margin-top: 20px;
+        }
+        .weather-image img {
+            max-width: 100px;
+            height: auto;
+        }
+    </style>
+    
+</head>
+<body>
+    <div class="container">
+        <h2>Enter City Name</h2>
+        <form action="/home/" method="get">
+            <!-- <label for="city"></label> -->
+            <input type="text" name="city" placeholder="Enter city name">
+            <button type="submit">Submit</button>
+        </form>
+        {% if weather %}
+        <h3>{{weather.span}}</h3>
+        <h3>{{weather.temp}}</h3>
+        <h3>{{weather.day}}</h3>
+        <h3>{{weather.sky}}</h3>
+        <h3>Precipitation:{{weather.Precipitation}}</h3>
+        <h3>Humidity:{{weather.Humidity}}</h3>
+        <h3>Wind:{{weather.Wind}}</h3>
+        <div class="weather-image">
+            <img src="{{ weather.url }}" alt="Weather condition">
+        </div>
+        {%endif%}
+    </div>
+    
+</body>
+</html>
